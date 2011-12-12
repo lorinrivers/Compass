@@ -58,53 +58,57 @@ Author/photo/graphic (optional)
 **/
 
 // Create applications metaboxes
-function lr_create_metaboxes() {
-$prefix = 'lr_';
-$meta_boxes = array();
-$meta_boxes[] = array(
-  'id' => 'related',
-  'title' => 'Related Content',
-  'pages' => array(
-    'post',
-    'page'
-  ), //post type
-  'context' => 'normal',
-  'priority' => 'high',
-  'show_names' => true, //Show field names left of input
-  'fields' => array(
-    array(
-      'name' => 'Title',
-      'desc' => 'Title of Related Content',
-      'id' => $prefix.'title',
-      'type' => 'text'
+$prefix = '_lr_';
+add_filter( 'cmb_meta_boxes', 'lr_create_metaboxes' );
+function lr_create_metaboxes( $meta_boxes ) {
+	global $prefix;
+  $meta_boxes[] = array(
+    'id' => 'related',
+    'title' => 'Related Content',
+    'pages' => array(     //post type
+      'post',
+      'page'
+    ), 
+    'context' => 'normal',
+    'priority' => 'high',
+    'show_names' => true, //Show field names left of input
+    'fields' => array(
+      array(
+        'name' => 'Title',
+        'desc' => 'Title of Related Content',
+        'id' => $prefix.'related_title',
+        'type' => 'text'
+      ),
+      array(
+        'name' => 'Link',
+        'desc' => 'URL of Related Content',
+        'id' => $prefix.'related_link',
+        'type' => 'text'
+      ),
+      array(
+        'name' => 'Description',
+        'desc' => 'General description (like a post’s content)',
+        'id' => $prefix.'related_description',
+        'type' => 'textarea'
+      ),
+      array(
+        'name' => 'Related Image',
+        'desc' => 'Upload an image or enter an URL.',
+        'id' => $prefix.'related_image',
+        'type' => 'file'
+      ),
     ),
-    array(
-      'name' => 'Link',
-      'desc' => 'URL of Related Content',
-      'id' => $prefix.'link',
-      'type' => 'text'
-    ),
-    array(
-      'name' => 'Description',
-      'desc' => 'General description (like a post’s content)',
-      'id' => $prefix.'description',
-      'type' => 'textarea'
-    ),
-    array(
-      'name' => 'Related Image',
-      'desc' => 'Upload an image or enter an URL.',
-      'id' => $prefix.'related_image',
-      'type' => 'file'
-    ),
-  ),
-);
+  );
 
+  return $meta_boxes;
+
+}
 
 
 // Initialize the metabox class
 add_action( 'init', 'lr_initialize_cmb_meta_boxes', 9999 );
 function lr_initialize_cmb_meta_boxes() {
 	if ( !class_exists( 'cmb_Meta_Box' ) ) {
-		require_once( 'init.php' );
+		require_once( CHILD_DIR . '/lib/metabox/init.php' );
 	}
 }
