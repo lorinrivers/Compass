@@ -15,7 +15,12 @@ add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 9
 /** Add support for 3-column footer widgets */
 add_theme_support( 'genesis-footer-widgets', 3 );
 
-/** Auto-Notify Editors */
+/** Global removal of Genesis features **/
+remove_action('genesis_before_post_content', 'genesis_post_info');
+remove_action('genesis_after_post_content', 'genesis_post_meta');
+remove_action('genesis_after_endwhile', 'genesis_posts_nav');
+
+/** Auto-Notify Editors via EditFLow */
 add_action( 'ef_init', 'ef_x_init_email_all_admins' );
 function ef_x_init_email_all_admins() {
 	add_filter( 'ef_notification_recipients', 'ef_x_email_all_admins', 10, 3 );
@@ -43,4 +48,63 @@ function ef_x_get_users_in_role( $role ) {
 		}
 	}
 	return $users;
+}
+
+/** 
+Title
+Link
+Description
+Author/photo/graphic (optional)
+**/
+
+// Create applications metaboxes
+function lr_create_metaboxes() {
+$prefix = 'lr_';
+$meta_boxes = array();
+$meta_boxes[] = array(
+  'id' => 'related',
+  'title' => 'Related Content',
+  'pages' => array(
+    'post',
+    'page'
+  ), //post type
+  'context' => 'normal',
+  'priority' => 'high',
+  'show_names' => true, //Show field names left of input
+  'fields' => array(
+    array(
+      'name' => 'Title',
+      'desc' => 'Title of Related Content',
+      'id' => $prefix.'title',
+      'type' => 'text'
+    ),
+    array(
+      'name' => 'Link',
+      'desc' => 'URL of Related Content',
+      'id' => $prefix.'link',
+      'type' => 'text'
+    ),
+    array(
+      'name' => 'Description',
+      'desc' => 'General description (like a post’s content)',
+      'id' => $prefix.'description',
+      'type' => 'textarea'
+    ),
+    array(
+      'name' => 'Related Image',
+      'desc' => 'Upload an image or enter an URL.',
+      'id' => $prefix.'related_image',
+      'type' => 'file'
+    ),
+  ),
+);
+
+
+
+// Initialize the metabox class
+add_action( 'init', 'lr_initialize_cmb_meta_boxes', 9999 );
+function lr_initialize_cmb_meta_boxes() {
+	if ( !class_exists( 'cmb_Meta_Box' ) ) {
+		require_once( 'init.php' );
+	}
 }
