@@ -89,8 +89,11 @@ function lr_create_metaboxes( $meta_boxes ) {
         'name' => 'Description',
         'desc' => 'General description (like a post’s content)',
         'id' => $prefix.'related_description',
-        'type' => 'textarea'
-      ),
+        'type' => 'wysiwyg',
+				'options' => array(
+					'textarea_rows' => 5,
+				)      
+			),
       array(
         'name' => 'Related Image',
         'desc' => 'Upload an image or enter an URL.',
