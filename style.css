@@ -106,13 +106,12 @@ textarea {
 }
 
 p,
-textarea {
-	font-family: Neuton, serif;
-}
+textarea { font-family: Neuton, serif; }
 
 input {
   color: #333;
   font-family: "Cabin Condensed", Calibri, "Helvetica Neue", "Lucida Grande", "Lucida Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
+  font-weight: bold;
 }
 
 blockquote,
@@ -124,13 +123,27 @@ textarea,
 .sticky,
 .taxonomy-description,
 .wp-caption {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
 }
+
+#subscribe-blog p input,
+form.searchform input.searchsubmit {
+  font-weight: bold;
+  background-color: #0075cf;
+}
+
+#subscribe-blog p input#subscribe-field {
+  background-color: #fff;
+  font-weight: normal;
+}
+
+h2.entry-title,
+h2.entry-title a { color: #0075cf; }
 
 li,
 ol,
@@ -146,7 +159,7 @@ ol li { list-style-type: decimal; }
 
 a,
 a:visited {
-  color: #2554c7;
+  color: #0075cf;
   text-decoration: none;
 }
 
@@ -267,12 +280,12 @@ li li a .sf-sub-indicator {
 
 #header ul.nav,
 #header ul.menu {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   float: right;
 }
 
@@ -362,12 +375,12 @@ li li a .sf-sub-indicator {
 ------------------------------------------------------------ */
 
 #nav {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #3d9b35;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   clear: both;
   color: #fff;
   font-weight: bold;
@@ -375,6 +388,10 @@ li li a .sf-sub-indicator {
   overflow: hidden;
   text-transform: uppercase;
   width: 958px;
+  -moz-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.66);
+  -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.66);
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.66);
+  opacity: 1;
 }
 
 #nav ul {
@@ -403,7 +420,28 @@ li li a .sf-sub-indicator {
 #nav li:hover a,
 #nav .current_page_item a,
 #nav .current-cat a,
-#nav .current-menu-item a { color: #000; }
+#nav .current-menu-item a {
+  color: #fff;
+  background-color: #66bc29;
+}
+
+#nav li#menu-item-92 a:hover,
+#nav li#menu-item-92 a:active,
+#nav li#menu-item-92:hover a,
+#nav #menu-item-92 .current_page_item a,
+#nav #menu-item-92 .current-cat a,
+#nav #menu-item-92 .current-menu-item a {
+  color: #fff;
+  background-color: #66bc29;
+  -khtml-border-top-left-radius: 6px;
+  -khtml-border-bottom-left-radius: 6px;
+  -moz-border-top-left-radius: 6px;
+  -moz-border-bottom-left-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
 
 #nav li li a,
 #nav li li a:link,
@@ -477,12 +515,12 @@ li li a .sf-sub-indicator {
 ------------------------------------------------------------ */
 
 #subnav {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   clear: both;
   color: #555;
   margin: 0 auto 10px;
@@ -621,8 +659,8 @@ blockquote {
 .entry-content { overflow: hidden; }
 
 .entry-content p {
-	padding: 0 0 15px;
-	font-family: 'Neuton', serif ;
+  padding: 0 0 15px;
+  font-family: 'Neuton', serif;
 }
 
 p.subscribe-to-comments { padding: 20px 0 10px; }
@@ -732,6 +770,8 @@ h2 a:visited {
   font-weight: bold;
 }
 
+h1.entry-title { color: #0075cf; }
+
 .taxonomy-description h1,
 .widget-area h2,
 .widget-area h2 a {
@@ -750,11 +790,13 @@ h3 { font-size: 20px; }
 h4 { font-size: 16px; }
 
 .widget-area h4 {
-  background-color: #f5f5f5;
-  border-bottom: 1px solid #ddd;
+  background-color: #3d9b35;
+  border-bottom: 1px solid #fff;
   font-size: 14px;
   margin: 0 0 5px;
   padding: 6px 5px 5px 10px;
+  color: #fff;
+  font-weight: bold;
 }
 
 .widget-area h4 a {
@@ -947,11 +989,11 @@ p.wp-caption-text {
 .navigation li.disabled,
 .navigation li a:hover,
 .navigation li.active a {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   padding: 5px 8px;
 }
 
@@ -985,12 +1027,12 @@ p.wp-caption-text {
 .content-sidebar-sidebar #sidebar-alt { float: right; }
 
 .sidebar .widget {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   margin: 0 0 15px;
   padding: 0 0 15px;
 }
@@ -998,7 +1040,7 @@ p.wp-caption-text {
 .widget-area .textwidget { padding: 5px 15px 0; }
 
 .widget-area ol,
-.widget-area ul { margin: 10px 0 0 30px; }
+.widget-area ul { margin: 10px 0 0 20px; }
 
 .widget-area ol ol,
 .widget-area ul ul { margin: 0 0 0 15px; }
@@ -1018,10 +1060,10 @@ p.wp-caption-text {
 
 #cat,
 .widget_archive select {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
   display: inline;
   font-family: "Cabin Condensed", Calibri, "Helvetica Neue", "Lucida Grande", "Lucida Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -1159,12 +1201,12 @@ input:hover[type="submit"] {
 ------------------------------------------------------------ */
 
 #footer-widgets {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   clear: both;
   margin: 0 auto 10px;
   overflow: hidden;
@@ -1222,12 +1264,12 @@ input:hover[type="submit"] {
 ------------------------------------------------------------ */
 
 #footer {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  border-radius: 3px;
+  border-radius: 6px;
   clear: both;
   font-size: 12px;
   margin: 0 auto;
@@ -1339,10 +1381,10 @@ input:hover[type="submit"] {
 .alt,
 .depth-1,
 .even {
-  -khtml-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
   border: 1px solid #ddd;
 }
 
@@ -1373,14 +1415,16 @@ div.gform_wrapper .gform_footer {
 
 /* Latest Tweets
 ----------------------------------------------------------- */
-.widget-area .latest-tweets ul { margin-left: 0; }
-
-.widget-area .latest-tweets ul li { list-style-type: none; }
-
 .widget-area .latest-tweets ul li {
-  margin-left: 6px;
   padding-left: 20px;
-  padding-top: -1px;
-  margin-bottom: 10px;
-  background: url(images/balloon-twitter.png) no-repeat 0 2px;
+  /*padding-top: -1px;*/
+	background: url(images/balloon-twitter.png) no-repeat 0 0;
+  list-style-type: none;
+  margin: 0 10px 10px 0;
 }
+
+/* Polls
+----------------------------------------------------------- */
+.widget-area .widget_polls-widget ul li { list-style-type: none; }
+
+.widget-area .widget_polls-widget p { font-family: "Cabin Condensed", Calibri, "Helvetica Neue", "Lucida Grande", "Lucida Sans", "Trebuchet MS", Helvetica, Arial, sans-serif; }
