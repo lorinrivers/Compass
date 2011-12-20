@@ -16,9 +16,9 @@ add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 9
 add_theme_support( 'genesis-footer-widgets', 3 );
 
 /** Global removal of Genesis features **/
-remove_action('genesis_before_post_content', 'genesis_post_info');
-remove_action('genesis_after_post_content', 'genesis_post_meta');
-remove_action('genesis_after_endwhile', 'genesis_posts_nav');
+// remove_action('genesis_before_post_content', 'genesis_post_info');
+// remove_action('genesis_after_post_content', 'genesis_post_meta');
+// remove_action('genesis_after_endwhile', 'genesis_posts_nav');
 
 /** Auto-Notify Editors via EditFLow */
 add_action( 'ef_init', 'ef_x_init_email_all_admins' );
