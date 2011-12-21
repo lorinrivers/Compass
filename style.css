@@ -12,8 +12,8 @@
   Template: genesis
   Template Version: 1.7.1
 
-	License: GNU General Public License v2.0 (or later)
-	License URI: http://www.opensource.org/licenses/gpl-license.php
+  License: GNU General Public License v2.0 (or later)
+  License URI: http://www.opensource.org/licenses/gpl-license.php
 */
 
 /* Table of Contents
@@ -131,15 +131,19 @@ textarea,
   border-radius: 6px;
 }
 
-#subscribe-blog p input,
-form.searchform input.searchsubmit {
-  font-weight: bold;
-  background-color: #0075cf;
+.widget-wrap {
+  -khtml-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
 }
 
-#subscribe-blog p input#subscribe-field {
-  background-color: #fff;
-  font-weight: normal;
+input,
+select {
+  -khtml-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 h2.entry-title,
@@ -797,6 +801,14 @@ h4 { font-size: 16px; }
   padding: 6px 5px 5px 10px;
   color: #fff;
   font-weight: bold;
+  -khtml-border-top-left-radius: 6px;
+  -moz-border-top-left-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -khtml-border-top-right-radius: 6px;
+  -moz-border-top-right-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .widget-area h4 a {
@@ -1014,6 +1026,10 @@ p.wp-caption-text {
 .sidebar p {
   font-size: 13px;
   line-height: 20px;
+  font-family: "Cabin Condensed", Calibri, "Helvetica Neue", "Lucida Grande", "Lucida Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
+  color: #414042;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #sidebar-alt {
@@ -1049,6 +1065,10 @@ p.wp-caption-text {
   list-style-type: square;
   word-wrap: break-word;
 }
+
+/* Event Manager Calendar
+------------------------------------------------------------ */
+.em-calendar-wrapper { padding: 0 5px; }
 
 /* Tag Cloud
 ------------------------------------------------------------ */
@@ -1114,15 +1134,26 @@ p.wp-caption-text {
 
 input[type="button"],
 input[type="submit"] {
-  background-color: #333;
-  border: 1px solid #666;
+  background-color: #0075cf;
+  border: 1px solid #00539f;
   color: #fff;
   cursor: pointer;
-  font-family: 'Oswald', arial, serif !important;
+  /*font-family: 'Oswald', arial, serif !important;*/
   font-size: 12px;
   font-weight: normal;
   padding: 4px 5px;
   text-decoration: none;
+}
+
+#subscribe-blog p input,
+form.searchform input.searchsubmit {
+  font-weight: bold;
+  background-color: #0075cf;
+}
+
+#subscribe-blog p input#subscribe-field {
+  background-color: #fff;
+  font-weight: normal;
 }
 
 input:hover[type="button"],
@@ -1418,7 +1449,7 @@ div.gform_wrapper .gform_footer {
 .widget-area .latest-tweets ul li {
   padding-left: 20px;
   /*padding-top: -1px;*/
-	background: url(images/balloon-twitter.png) no-repeat 0 0;
+  background: url(images/balloon-twitter.png) no-repeat 0 0;
   list-style-type: none;
   margin: 0 10px 10px 0;
 }
@@ -1428,3 +1459,31 @@ div.gform_wrapper .gform_footer {
 .widget-area .widget_polls-widget ul li { list-style-type: none; }
 
 .widget-area .widget_polls-widget p { font-family: "Cabin Condensed", Calibri, "Helvetica Neue", "Lucida Grande", "Lucida Sans", "Trebuchet MS", Helvetica, Arial, sans-serif; }
+
+/* Sidebar Tabs
+----------------------------------------------------------- */
+.widget_sidebartabs ul.sidebarTabs {
+  font: bold 14px "Cabin Condensed", Calibri, "Helvetica Neue", "Lucida Grande", "Lucida Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+.sidebar .widget.widget_sidebartabs {
+  border: none;
+}
+
+.sidebar .widget_sidebartabs ul.sidebarTabs a { background: #3d9b35; }
+
+.sidebar .widget_sidebartabs ul.sidebarTabs a.current,
+.sidebar .widget_sidebartabs ul.sidebarTabs a:hover {
+  border-bottom: #fff solid 1px;
+}
+
+.sidebar ul.sb_fwithout_icons a { border-color: #ddd ; }
+
+.sidebar ul.sb_fwithout_icons a.current,
+.sidebar ul.sb_fwithout_icons a:hover {
+  border-bottom: #fff solid 1px;
+}
+
+#sidebartabs-2 div.widget-wrap div.sb_container.sb_container_fwithout_icons div.sidebarTabs_divs.sidebarTabs_panes.sidebarTabs_divs1 div.tb {
+  border: 1px solid #ddd;
+}
