@@ -115,3 +115,7 @@ function lr_initialize_cmb_meta_boxes() {
 		require_once( CHILD_DIR . '/lib/metabox/init.php' );
 	}
 }
+
+/* Enable Shortcodes in Text Widgets */
+add_filter('widget_text', 'do_shortcode');
+
